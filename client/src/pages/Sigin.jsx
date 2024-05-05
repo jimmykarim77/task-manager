@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
- import { useForm } from 'react-hook-form'
-import {useNavigate} from 'react-router-dom' 
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import Textbox from '../component/Textbox'
+import { useSelector } from 'react-redux'
 
  
 
 
 const Sigin = () => {
-    const user=""
+    const {user}=useSelector((state)=>state.auth)
   const {register,
         handleSubmit,
         formState:{errors},} = useForm()
@@ -79,11 +80,11 @@ const Sigin = () => {
           >
 
           </Textbox>
-         <span className='text-sm'>Mot de Passe Oublié?</span> 
+         <span className='text-sm hover:text-blue-400 cursor-pointer hover:underline'>Mot de Passe Oublié?</span> 
          <button className='bg-blue-600 rounded-xl p-3 text-white'>CONNEXION</button>
          <div className='flex gap-2 text-sm '>
          <span> Pas encore de compte</span>
-         <p className='text-blue-600 '>Sign Up</p>
+         <p className='text-blue-600  cursor-pointer hover:underline'>Sign Up</p>
          </div>
          
         </div>
